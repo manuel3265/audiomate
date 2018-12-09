@@ -10,6 +10,9 @@ Processor
 .. autoclass:: Processor
    :members:
 
+.. autoclass:: ParallelProcessor
+   :members:
+
 Pipeline
 --------
 

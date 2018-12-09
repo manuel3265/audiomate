@@ -15,3 +15,4 @@ The different components are then be coupled to create custom pipelines.
 """
 
 from .base import Processor  # noqa: F401
+from .parallel import ParallelProcessor  # noqa: F401
