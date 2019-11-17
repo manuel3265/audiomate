@@ -121,6 +121,12 @@ class Utterance(object):
                         as a floating point (numpy.float32) time series.
         """
 
+        #
+        #
+        # gooht schneller wenn me nid duration unso mue uslese
+        # im fall utterance es ganze file ischt
+        #
+
         read_duration = self.duration
 
         if offset > 0 and read_duration is not None:

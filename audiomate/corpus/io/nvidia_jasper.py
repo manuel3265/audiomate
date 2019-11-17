@@ -80,6 +80,7 @@ class NvidiaJasperWriter(base.CorpusWriter):
         return utts
 
     def process_utterances_parallel(self, corpus, base_path):
+        os.makedirs(os.path.join(base_path, 'audio'), exist_ok=True)
         in_utts = list(corpus.utterances.values())
         num_utts = len(in_utts)
         utts_per_worker = int(num_utts / self.num_workers)
@@ -111,7 +112,7 @@ class NvidiaJasperWriter(base.CorpusWriter):
     def process_utterance(self, utts, base_path):
         res = []
 
-        for utt in tqdm(utts):
+        for utt in utts:
             export_utt = False
 
             if self.export_all_audio:
