@@ -1,5 +1,6 @@
 import os
 import shutil
+import tqdm
 
 import audiomate
 from audiomate import annotations
@@ -49,12 +50,15 @@ class TatoebaDownloader(base.CorpusDownloader):
         audio_ark = os.path.join(temp_path, 'sentences_with_audio.tar.bz2')
         audio_list = os.path.join(temp_path, 'sentences_with_audio.csv')
 
+        print('Downloading sentences ...')
         download.download_file(SENTENCE_LIST_URL, sentence_ark)
         download.download_file(AUDIO_LIST_URL, audio_ark)
 
+        print('Extracting files ...')
         download.extract_tar(sentence_ark, temp_path)
         download.extract_tar(audio_ark, temp_path)
 
+        print('Calculating audio file ids ...')
         audio_entries = self._load_audio_list(audio_list)
         sentences = self._load_sentence_list(sentence_list)
 
@@ -66,6 +70,7 @@ class TatoebaDownloader(base.CorpusDownloader):
         meta_path = os.path.join(target_path, META_FILENAME)
         textfile.write_separated_lines(meta_path, all_records, separator='\t', sort_by_column=0)
 
+        print('Downloading audio files ...')
         self._download_audio_files(all_records, target_path)
 
         shutil.rmtree(temp_path, ignore_errors=True)
@@ -125,7 +130,7 @@ class TatoebaDownloader(base.CorpusDownloader):
         Download all audio files based on the given records.
         """
 
-        for record in records:
+        for record in tqdm.tqdm(records):
             audio_folder = os.path.join(target_path, 'audio', record[2])
             audio_file = os.path.join(audio_folder, '{}.mp3'.format(record[0]))
             os.makedirs(audio_folder, exist_ok=True)
