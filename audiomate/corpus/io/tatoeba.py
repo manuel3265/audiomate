@@ -26,7 +26,7 @@ class TatoebaDownloader(base.CorpusDownloader):
 
     Args:
         include_languages (list): List of languages codes to download. If None all are downloaded.
-                                  Available languages: https://github.com/Tatoeba/tatoeba2/blob/dev/src/Lib/LanguagesLib.php#L222
+                                  Languages: https://github.com/Tatoeba/tatoeba2/blob/dev/src/Lib/LanguagesLib.php#L222
         include_licenses (list): Sentences are downloaded only if their license is in this list.
                                  If None all licenses are included.
         load_empty_license (bool): Sentences with an empty license are not meant to be reused.
