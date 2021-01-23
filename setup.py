@@ -20,7 +20,7 @@ REQUIRED = [
     'requests == 2.23.0',
     'intervaltree == 3.0.2',
     'sox == 1.3.7',
-    'PGet == 0.5.0',
+    # 'PGet == 0.5.0',
     'tqdm',
     'chardet',
     'pandas',
