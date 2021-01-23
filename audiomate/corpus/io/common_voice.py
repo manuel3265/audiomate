@@ -15,7 +15,7 @@ logger = logutil.getLogger()
 
 # ==================================================================================================
 
-BASE_URL = "https://voice-prod-bundler-ee1969a6ce8178826482b88e843c335139bd3fb4.s3.amazonaws.com/cv-corpus-5-2020-06-22/{}.tar.gz"  # noqa
+BASE_URL = "https://voice-prod-bundler-ee1969a6ce8178826482b88e843c335139bd3fb4.s3.amazonaws.com/cv-corpus-6.1-2020-12-11/{}.tar.gz"  # noqa
 LANGUAGES = {
     "ab",
     "ar",
