@@ -9,9 +9,9 @@ import os
 import signal
 import sys
 
-from pget import down
-from pget.log import setup_logging
-from pget.down import Downloader
+from audiomate.pget import down
+from audiomate.pget import setup_logging
+from audiomate.pget import Downloader
 
 first_summary_flag = False
 logger = logging.getLogger(__name__)
@@ -28,7 +28,7 @@ def download_callback(downloader):
             downloader.total_length, down.readable_bytes(downloader.total_length)))
         first_summary_flag = True
 
-    from pget import term
+    from audiomate.pget import term
     term_width, term_height = term.getTerminalSize()
     if term_width >= 100:
         term_width = 100

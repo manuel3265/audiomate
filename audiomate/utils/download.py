@@ -8,7 +8,7 @@ import tarfile
 import multiprocessing
 
 import requests
-from pget.down import Downloader
+from audiomate.pget import Downloader
 
 from audiomate import logutil
 
